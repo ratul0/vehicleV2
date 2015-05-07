@@ -28,7 +28,7 @@
     </div>
 
     <div>
-        {{ Form::submit('Submit') }}
+        {{ Form::submit('Search') }}
     </div>
 
 
@@ -36,13 +36,23 @@
 
 @stop
 
+@section('style')
+    {{ HTML::style('css/chosen_dropdown/chosen.css') }}
+@stop
+
 
 @section('script')
 
+    {{ HTML::script('js/chosen_dropdown/chosen.jquery.min.js') }}
+    {{ HTML::script('js/chosen_dropdown/chosen.proto.min.js') }}
+
+
+
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function() {
-            $('#make').change(function(){
+            $("#make").chosen();
 
+            $('#make').change(function(){
                 var id = $(this).val();
                 var data = 'id='+ id;
                 console.log(data);
@@ -62,15 +72,8 @@
                                 text: value
                             }));
                         });
-
-
-
-
                     }
-
                 });
-
-
             });
         });
     </script>

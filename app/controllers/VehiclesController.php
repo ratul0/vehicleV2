@@ -21,9 +21,9 @@ class VehiclesController extends \BaseController {
 					->where('account.STATE_STATUS','=',Account::STATE_STATUS_ENABLED)
 					->select('vehicle.make', 'vehicle.model', 'vehicle.year')
 					->get();
-		//dd(Input::get('make'));
+		$paginate = Paginator::make($vehicles, count($vehicles), 16);
 		return View::make('vehicles.index')
-					->with('vehicles',$vehicles);
+					->with('vehicles',$paginate);
 	}
 
 }
