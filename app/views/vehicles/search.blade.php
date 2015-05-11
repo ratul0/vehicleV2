@@ -13,7 +13,7 @@
     <div>
         <label for="model">Model :</label>
         <select id="model" name="model">
-            <option>Please choose car make first</option>
+            <option></option>
         </select>
     </div>
 
